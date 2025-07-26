@@ -113,145 +113,232 @@ const LeaveApplicationForm = () => {
                 <form onSubmit={handleSubmit}>
                     <h3 className="text-xl font-bold text-gray-800 mb-4">Your Details</h3>
 
-                    {/* Name Input */}
-                    <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2">Full Name:</label>
-                        <input
-                            type="text"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            className="shadow border rounded w-full py-2 px-3"
-                            required
-                        />
-                    </div>
-
-                    {/* Gender Select */}
-                    <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2">Gender:</label>
-                        <select
-                            name="gender"
-                            value={formData.gender}
-                            onChange={handleChange}
-                            className="shadow border rounded w-full py-2 px-3"
-                            required
-                        >
-                            <option value="">Select Gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-
-                    {/* Rest of your inputs */}
-                    {[
-                        { label: "Employee ID", name: "employeeId" },
-                        { label: "Position", name: "position" },
-                        { label: "Department", name: "department" },
-                        { label: "Email", name: "email", type: "email" },
-                        { label: "Phone Number", name: "phone", type: "tel" },
-                        { label: "Address", name: "address" }
-                    ].map(({ label, name, type = "text" }) => (
-                        <div className="mb-4" key={name}>
-                            <label className="block text-gray-700 text-sm font-bold mb-2">{label}:</label>
+                    {/* Personal Details - Row of 3 */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mb-6">
+                        {/* Name Input */}
+                        <div>
+                            <label className="block text-gray-700 text-sm font-bold mb-2">Full Name:</label>
                             <input
-                                type={type}
-                                name={name}
-                                value={formData[name]}
+                                type="text"
+                                name="name"
+                                value={formData.name}
                                 onChange={handleChange}
                                 className="shadow border rounded w-full py-2 px-3"
                                 required
                             />
                         </div>
-                    ))}
 
-                    {/* Leave Details */}
-                    <h3 className="text-xl font-bold text-gray-800 mt-6 mb-4">Leave Details</h3>
-                    <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2">Application Date:</label>
-                        <input
-                            type="date"
-                            name="applicationDate"
-                            value={formData.applicationDate}
-                            onChange={handleChange}
-                            className="shadow border rounded w-full py-2 px-3"
-                            required
-                        />
-                    </div>
+                        {/* Gender Select */}
+                        <div>
+                            <label className="block text-gray-700 text-sm font-bold mb-2">Gender:</label>
+                            <select
+                                name="gender"
+                                value={formData.gender}
+                                onChange={handleChange}
+                                className="shadow border rounded w-full py-2 px-3"
+                                required
+                            >
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
 
-                    <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2">Type of Leave:</label>
-                        <select
-                            name="leaveType"
-                            value={formData.leaveType}
-                            onChange={handleChange}
-                            className="shadow border rounded w-full py-2 px-3"
-                            required
-                        >
-                            <option value="">Select Leave Type</option>
-                            <option value="annual">Annual Leave</option>
-                            <option value="sick">Sick Leave</option>
-                            <option value="casual">Casual Leave</option>
-                            <option value="maternity">Maternity Leave</option>
-                            <option value="paternity">Paternity Leave</option>
-                            <option value="unpaid">Unpaid Leave</option>
-                        </select>
-                    </div>
-
-                    <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2">Start Date:</label>
-                        <input
-                            type="date"
-                            name="startDate"
-                            value={formData.startDate}
-                            onChange={handleChange}
-                            className="shadow border rounded w-full py-2 px-3"
-                            required
-                        />
-                    </div>
-
-                    <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2">End Date:</label>
-                        <input
-                            type="date"
-                            name="endDate"
-                            value={formData.endDate}
-                            onChange={handleChange}
-                            className="shadow border rounded w-full py-2 px-3"
-                            required
-                        />
-                    </div>
-
-                    <div className="mb-6">
-                        <label className="block text-gray-700 text-sm font-bold mb-2">Reason for Leave:</label>
-                        <textarea
-                            name="reason"
-                            value={formData.reason}
-                            onChange={handleChange}
-                            rows="4"
-                            className="shadow border rounded w-full py-2 px-3"
-                            required
-                        ></textarea>
-                    </div>
-
-                    {/* Acting During Leave */}
-                    <h3 className="text-xl font-bold text-gray-800 mt-6 mb-4">Acting During Leave</h3>
-                    {[
-                        { label: "Full Name", name: "replacementName" },
-                        { label: "Email", name: "replacementEmail", type: "email" },
-                        { label: "Phone Number", name: "replacementPhone", type: "tel" }
-                    ].map(({ label, name, type = "text" }) => (
-                        <div className="mb-4" key={name}>
-                            <label className="block text-gray-700 text-sm font-bold mb-2">{label}:</label>
+                        {/* Employee ID Input */}
+                        <div>
+                            <label className="block text-gray-700 text-sm font-bold mb-2">Employee ID:</label>
                             <input
-                                type={type}
-                                name={name}
-                                value={formData[name]}
+                                type="text"
+                                name="employeeId"
+                                value={formData.employeeId}
+                                onChange={handleChange}
+                                className="shadow border rounded w-full py-2 px-3"
+                                required
+                            />
+                        </div>
+
+                        {/* Position Input */}
+                        <div>
+                            <label className="block text-gray-700 text-sm font-bold mb-2">Position:</label>
+                            <input
+                                type="text"
+                                name="position"
+                                value={formData.position}
+                                onChange={handleChange}
+                                className="shadow border rounded w-full py-2 px-3"
+                                required
+                            />
+                        </div>
+
+                        {/* Department Input */}
+                        <div>
+                            <label className="block text-gray-700 text-sm font-bold mb-2">Department:</label>
+                            <input
+                                type="text"
+                                name="department"
+                                value={formData.department}
+                                onChange={handleChange}
+                                className="shadow border rounded w-full py-2 px-3"
+                                required
+                            />
+                        </div>
+
+                        {/* Email Input */}
+                        <div>
+                            <label className="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                            <input
+                                type="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                className="shadow border rounded w-full py-2 px-3"
+                                required
+                            />
+                        </div>
+
+                        {/* Phone Number Input */}
+                        <div>
+                            <label className="block text-gray-700 text-sm font-bold mb-2">Phone Number:</label>
+                            <input
+                                type="tel"
+                                name="phone"
+                                value={formData.phone}
+                                onChange={handleChange}
+                                className="shadow border rounded w-full py-2 px-3"
+                                required
+                            />
+                        </div>
+
+                        {/* Address Input */}
+                        <div className="lg:col-span-1"> {/* Adjust to span only 1 column in lg, or remove if you want it to wrap */}
+                            <label className="block text-gray-700 text-sm font-bold mb-2">Address:</label>
+                            <input
+                                type="text"
+                                name="address"
+                                value={formData.address}
+                                onChange={handleChange}
+                                className="shadow border rounded w-full py-2 px-3"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    {/* Leave Details - Row of 3 */}
+                    <h3 className="text-xl font-bold text-gray-800 mt-6 mb-4">Leave Details</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mb-6">
+                        {/* Application Date Input */}
+                        <div>
+                            <label className="block text-gray-700 text-sm font-bold mb-2">Application Date:</label>
+                            <input
+                                type="date"
+                                name="applicationDate"
+                                value={formData.applicationDate}
+                                onChange={handleChange}
+                                className="shadow border rounded w-full py-2 px-3"
+                                required
+                            />
+                        </div>
+
+                        {/* Type of Leave Select */}
+                        <div>
+                            <label className="block text-gray-700 text-sm font-bold mb-2">Type of Leave:</label>
+                            <select
+                                name="leaveType"
+                                value={formData.leaveType}
+                                onChange={handleChange}
+                                className="shadow border rounded w-full py-2 px-3"
+                                required
+                            >
+                                <option value="">Select Leave Type</option>
+                                <option value="annual">Annual Leave</option>
+                                <option value="sick">Sick Leave</option>
+                                <option value="casual">Casual Leave</option>
+                                <option value="maternity">Maternity Leave</option>
+                                <option value="paternity">Paternity Leave</option>
+                                <option value="unpaid">Unpaid Leave</option>
+                            </select>
+                        </div>
+
+                        {/* Start Date Input */}
+                        <div>
+                            <label className="block text-gray-700 text-sm font-bold mb-2">Start Date:</label>
+                            <input
+                                type="date"
+                                name="startDate"
+                                value={formData.startDate}
+                                onChange={handleChange}
+                                className="shadow border rounded w-full py-2 px-3"
+                                required
+                            />
+                        </div>
+
+                        {/* End Date Input */}
+                        <div>
+                            <label className="block text-gray-700 text-sm font-bold mb-2">End Date:</label>
+                            <input
+                                type="date"
+                                name="endDate"
+                                value={formData.endDate}
+                                onChange={handleChange}
+                                className="shadow border rounded w-full py-2 px-3"
+                                required
+                            />
+                        </div>
+                        {/* Reason for Leave (this is a textarea, so it often looks better spanning full width) */}
+                        <div className="md:col-span-2 lg:col-span-3">
+                            <label className="block text-gray-700 text-sm font-bold mb-2">Reason for Leave:</label>
+                            <textarea
+                                name="reason"
+                                value={formData.reason}
+                                onChange={handleChange}
+                                rows="4"
+                                className="shadow border rounded w-full py-2 px-3"
+                                required
+                            ></textarea>
+                        </div>
+                    </div>
+
+
+                    {/* Acting During Leave - Row of 3 */}
+                    <h3 className="text-xl font-bold text-gray-800 mt-6 mb-4">Acting During Leave</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                        {/* Replacement Name Input */}
+                        <div>
+                            <label className="block text-gray-700 text-sm font-bold mb-2">Full Name:</label>
+                            <input
+                                type="text"
+                                name="replacementName"
+                                value={formData.replacementName}
                                 onChange={handleChange}
                                 className="shadow border rounded w-full py-2 px-3"
                             />
                         </div>
-                    ))}
+
+                        {/* Replacement Email Input */}
+                        <div>
+                            <label className="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                            <input
+                                type="email"
+                                name="replacementEmail"
+                                value={formData.replacementEmail}
+                                onChange={handleChange}
+                                className="shadow border rounded w-full py-2 px-3"
+                            />
+                        </div>
+
+                        {/* Replacement Phone Input */}
+                        <div>
+                            <label className="block text-gray-700 text-sm font-bold mb-2">Phone Number:</label>
+                            <input
+                                type="tel"
+                                name="replacementPhone"
+                                value={formData.replacementPhone}
+                                onChange={handleChange}
+                                className="shadow border rounded w-full py-2 px-3"
+                            />
+                        </div>
+                    </div>
 
                     <div className="flex justify-center mt-6">
                         <button

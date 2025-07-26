@@ -48,7 +48,7 @@ const UserApprovedLeaves = () => {
                         {approvedLeaves.map((leave, index) => (
                             <tr key={index}>
                                 <td className="p-2 border">{leave.name}</td>
-                                <td className="p-2 border capitalize">{leave.status}</td>
+                                <td className="p-2 border capitalize text-green-500">{leave.status}</td>
                                 <td className="p-2 border">{leave.action_by}</td>
                             </tr>
                         ))}
