@@ -105,7 +105,7 @@ const ChangePassword = () => {
                             type="password"
                             id="newPassword"
                             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 text-gray-900"
-                            placeholder="Enter your new password (min 6 characters)"
+                            placeholder="Enter your new password"
                             value={newPassword}
                             onChange={(e) => setNewPassword(e.target.value)}
                             required

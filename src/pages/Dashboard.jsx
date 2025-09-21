@@ -7,7 +7,7 @@ function Dashboard() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
     return (
-        <div className="flex flex-col md:flex-row min-h-screen bg-gray-50">
+        <div className="flex min-h-screen bg-gray-50">
             {/* Mobile Sidebar Overlay */}
             {sidebarOpen && (
                 <div
@@ -18,8 +18,8 @@ function Dashboard() {
 
             {/* Sidebar */}
             <div
-                className={`fixed z-50 md:static top-0 left-0 h-full bg-white shadow-md transition-transform duration-300 ease-in-out
-                ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 w-64`}
+                className={`fixed z-50 md:sticky top-0 left-0 h-screen w-64 bg-white shadow-md transition-transform duration-300 ease-in-out
+                ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`}
             >
                 <Sidebar />
             </div>
@@ -32,7 +32,7 @@ function Dashboard() {
                 </div>
 
                 {/* Page Content */}
-                <main className="flex-1 overflow-y-auto  ">
+                <main className="flex-1 overflow-y-auto p-4">
                     <Outlet />
                 </main>
             </div>

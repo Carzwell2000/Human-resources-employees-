@@ -6,10 +6,13 @@ const Sidebar = () => {
     const normalLinkClasses = "text-gray-300 hover:bg-teal-700 hover:text-white";
 
     return (
-        <div className="w-74 bg-gray-800 text-white p-5 h-screen fixed top-0 left-0 shadow-lg">
+        <div className="w-64 bg-gray-800 text-white p-5 h-screen fixed md:sticky top-0 left-0 shadow-lg z-50">
+            {/* Logo / Header */}
             <div className="text-center mb-8 border-b border-gray-700 pb-4">
                 <h2 className="text-2xl font-bold text-teal-400">Employee Dashboard</h2>
             </div>
+
+            {/* Navigation Links */}
             <ul className="space-y-3">
                 <li>
                     <NavLink
@@ -51,7 +54,6 @@ const Sidebar = () => {
                         Change password
                     </NavLink>
                 </li>
-
             </ul>
         </div>
     );
