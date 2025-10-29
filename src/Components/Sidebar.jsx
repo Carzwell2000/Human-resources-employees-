@@ -34,7 +34,7 @@ const Sidebar = () => {
                         Apply leave
                     </NavLink>
                 </li>
-                <li>
+                {/* <li>
                     <NavLink
                         to="/dashboard/resignation"
                         className={({ isActive }) =>
@@ -43,7 +43,7 @@ const Sidebar = () => {
                     >
                         Resigner
                     </NavLink>
-                </li>
+                </li>*/}
                 <li>
                     <NavLink
                         to="/dashboard/change-password"

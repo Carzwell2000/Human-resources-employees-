@@ -14,6 +14,7 @@ import Leaveapproved from "./Leaves/Leaveapproved";
 import Leavedeclined from "./Leaves/Leavedeclined";
 import Approvedres from "./resignations/Approvedres";
 import Declinedres from "./resignations/Declinedres"
+import Tracing from './tracing/Tracing';
 
 
 // Dummy auth check
@@ -54,6 +55,7 @@ function App() {
           <Route path="leave-declined" element={<Leavedeclined />} />
           <Route path="approved-res" element={<Approvedres />} />
           <Route path="declined-res" element={<Declinedres />} />
+          <Route path="trace-records" element={<Tracing />} />
         </Route>
 
         {/* Fallback: redirect to login or dashboard */}

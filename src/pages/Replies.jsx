@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
+import { FaCheckCircle, FaTimesCircle, FaHistory } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const LeaveDetailsCards = () => {
@@ -37,7 +37,25 @@ const LeaveDetailsCards = () => {
                 </div>
             </div>
 
-            {/* Resignation Section */}
+            {/* ✅ Trace Section (NEW) */}
+            <div className="max-w-4xl mx-auto mb-12">
+                <h2 className={`text-3xl font-bold text-center mb-8`}>
+                    Trace Records
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <Link to="/dashboard/trace-records">
+                        <div className="bg-white rounded shadow p-4 flex items-center space-x-3">
+                            <FaHistory className="text-blue-600 text-xl" />
+                            <div>
+                                <p className="font-bold text-lg">Trace</p>
+                                <p className="text-sm">View your leave tracing history here</p>
+                            </div>
+                        </div>
+                    </Link>
+                </div>
+            </div>
+
+            {/* Resignation Section 
             <div className="max-w-4xl mx-auto">
                 <h2 className={`text-3xl font-bold text-center mb-8 `}>
                     Resignation Status
@@ -57,12 +75,12 @@ const LeaveDetailsCards = () => {
                             <FaTimesCircle className="text-red-600 text-xl" />
                             <div>
                                 <p className=" font-bold text-lg">Status</p>
-                                <p className="text-sm">check if your resignation is approved</p>
+                                <p className="text-sm">check if your resignation is declined</p>
                             </div>
                         </div>
                     </Link>
                 </div>
-            </div>
+            </div>*/}
         </div>
     );
 };
